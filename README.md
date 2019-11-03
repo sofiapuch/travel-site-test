@@ -11,3 +11,4 @@
 
 
 - SVG's cleaned with svggo to reduce size and remove unnecessary markup/properties: https://jakearchibald.github.io/svgomg/
+- Moment.js to handle dates ( https://momentjs.com/ )

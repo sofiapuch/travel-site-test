@@ -31,10 +31,12 @@ const paths = {
     },
     vendors : {
         "development" : [
-            "./node_modules/underscore/underscore.js"
+            "./node_modules/underscore/underscore.js",
+            "./node_modules/moment/moment.js"
         ],
         "production" : [
-            "./node_modules/underscore/underscore-min.js"
+            "./node_modules/underscore/underscore-min.js",
+            "./node_modules/moment/min/moment.min.js"
         ]
     }
 };

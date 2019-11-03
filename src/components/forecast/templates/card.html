@@ -2,13 +2,13 @@
 
 <% _.each( itemList, function( item ) { %>
     <div class="col-3">
-        <div class="card card--clear-sky">
+        <div class="card card--<%= common.Helpers.getCardModifier( item.weather[0].description ) %>">
             <div class="card__bg-icon">
                 <svg class="icon">
                     <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/assets/svg-output/icons.svg#<%= item.weather[0].icon %>"></use>
                 </svg>
             </div>
-            <p class="card__date">Today 15th</p>
+            <p class="card__date"><%= common.Helpers.getFormattedDate( item.dt_txt, "dddd Do" ) %></p>
             <div class="card__info-wrapper">
                 <div class="card__icon">
                     <svg class="icon">

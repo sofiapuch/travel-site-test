@@ -17,7 +17,7 @@
             return null;
         }
         return `https://api.openweathermap.org/data/2.5/forecast?q=${location}&appid=${appID}`;
-    }
+    };
 
     /**
      * Render underscore template into index.html
@@ -33,6 +33,38 @@
         }
 
         element.innerHTML = template( model );
-    }
+    };
+
+    /**
+     * Returns modifier that will be applied to the weather card,
+     * depending on the weather description
+     * @param {String} description weather description to be returned as modifier
+     * @return {String} sass modifier
+     */
+    common.Helpers.getCardModifier = function( description ) {
+
+        if ( !description ) {
+            return '';
+        }
+
+        return description.replace( ' ', '-' );
+    };
+
+    /**
+     * Gets date string and applies given format with momentjs
+     * @param {String} dateString date string with format "YYYY-MM-DD HH:mm:ss"
+     * param {String} format how do we want to get the date
+     * @return {String} formatted date
+     */
+
+    common.Helpers.getFormattedDate = function( dateString, format ) {
+
+        if ( !dateString ) {
+            return '';
+        }
+
+        const momentObject = moment( dateString, "YYYY-MM-DD HH:mm:ss" );
+        return momentObject.format( format );
+    };
 
 }( common ));

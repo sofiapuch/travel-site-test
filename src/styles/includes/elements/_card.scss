@@ -13,7 +13,6 @@
             height: 20rem;
             fill: rgba($white, .2);
         }
-
     }
 
     &__date {
@@ -65,12 +64,22 @@
         }
     }
 
-    //TODO: replace with themify ( https://www.npmjs.com/package/sass-themify )
+    //TODO: replace with themify ( https://www.npmjs.com/package/sass-themify ) + map options
     &--clear-sky {
 
         @include linear-gradient(to top, $clear-sky...);
     }
+
     &--broken-clouds {
         @include linear-gradient(to top, $broken-clouds...);
+    }
+
+    &--overcast-clouds {
+        @include linear-gradient(to top, $few-clouds...);
+    }
+
+    &--light-rain,
+    &--moderate-rain {
+        @include linear-gradient(to top, $rain...);
     }
 }
