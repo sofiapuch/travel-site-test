@@ -1,5 +1,14 @@
-// Global styling
-@import 'global/*.scss';
+/* GLOBAL INCLUDES */
 
-// Component styling
-@import '../components/**/styles/*.scss';
+@import 'includes/settings/variables';
+
+@import 'includes/global/mixins';
+@import 'includes/global/global';
+
+@import 'includes/components/*.scss';
+
+
+
+/* COMPONENTS */
+
+//@import '../components/**/styles/*.scss';

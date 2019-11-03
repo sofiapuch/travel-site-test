@@ -1,0 +1,7 @@
+body {
+    @include title-font;
+}
+
+h1 {
+    @include copy-font;
+}

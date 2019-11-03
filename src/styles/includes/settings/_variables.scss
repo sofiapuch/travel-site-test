@@ -1,0 +1,35 @@
+/*
+ * COLOURS
+ * Naming conventions taken from
+ * http://chir.ag/projects/name-that-color/
+ */
+$mustard: #ffdb4e;
+$atomic-tangerine: #ff9872;
+$caribbean-green: #03b9a5;
+$bright-turquoise: #30eceb;
+$boston-blue: #3e93b2;
+$turquoise-blue: #44edec;
+$bahama-blue: #066e94;
+$malibu: #6fd4fb;
+$curious-blue: #24a0cd;
+$tarawera: #0a465d;
+$hippie-blue: #61a1ba;
+$danube: #74a3de;
+$iceberg: #dcecf4;
+$oslo-gray: #919494;
+$iron: #d6d8d9;
+
+$black: #000;
+$white: #fff;
+
+
+/* GRADIENT GROUPS */
+$clear-sky: $mustard, $atomic-tangerine;
+$few-clouds: $caribbean-green, $bright-turquoise;
+$scattered-clouds: $boston-blue, $turquoise-blue;
+$broken-clouds: $scattered-clouds;
+$shower-rain: $bahama-blue, $malibu;
+$rain: $curious-blue, $malibu;
+$thunderstorm: $tarawera, $hippie-blue;
+$snow: $danube, $iceberg;
+$mist: $oslo-gray, $iron;

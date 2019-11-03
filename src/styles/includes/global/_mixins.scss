@@ -1,0 +1,20 @@
+/**
+ * Mixin to use on titles
+ */
+@mixin title-font {
+    font-family: 'Roboto Condensed', sans-serif;
+}
+
+/**
+ * Mixin to use on copys
+ */
+@mixin copy-font {
+    font-family: 'Roboto', sans-serif;
+}
+
+/**
+ * Creates an X stop linear-gradient, defaults to top to bottom gradient
+ */
+ @mixin linear-gradient( $direction, $colours...) {
+     background-image: linear-gradient($direction, $colours);
+ }
