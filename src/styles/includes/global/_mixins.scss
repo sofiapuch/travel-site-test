@@ -18,3 +18,20 @@
  @mixin linear-gradient( $direction, $colours...) {
      background-image: linear-gradient($direction, $colours);
  }
+
+ /**
+  * Prevents that an element with floated children collapses
+  */
+  @mixin clearfix {
+
+      &::before {
+          content: '';
+          display: block;
+      }
+
+      &::after {
+          content: '';
+          display: table;
+          clear: both;
+      }
+  }

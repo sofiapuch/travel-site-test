@@ -41,6 +41,6 @@
         }
     };
 
-    new app.ApiRequest();
+    // new app.ApiRequest();
 
 }( app ));

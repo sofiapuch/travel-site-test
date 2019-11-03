@@ -1,14 +1,13 @@
-/* GLOBAL INCLUDES */
+/* Main SCSS file that holds all the includes needed for this project */
 
+/* Settings */
+@import 'includes/settings/normalize';
 @import 'includes/settings/variables';
 
+/* Global */
 @import 'includes/global/mixins';
 @import 'includes/global/global';
+@import 'includes/global/grid';
 
+/* Components */
 @import 'includes/components/*.scss';
-
-
-
-/* COMPONENTS */
-
-//@import '../components/**/styles/*.scss';
