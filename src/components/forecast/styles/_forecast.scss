@@ -1,0 +1,26 @@
+/* Styling for Forecast Component */
+
+$border-radius: 1rem;
+
+.forecast {
+
+    [class*='col-'] {
+        width: 18%; //override global column width
+
+        &:first-child {
+
+            .card {
+                border-top-left-radius: $border-radius;
+                border-bottom-left-radius: $border-radius;
+            }
+        }
+
+        &:last-child {
+
+            .card {
+                border-top-right-radius: $border-radius;
+                border-bottom-right-radius: $border-radius;
+            }
+        }
+    }
+}

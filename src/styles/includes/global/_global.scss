@@ -9,9 +9,18 @@ html {
 }
 
 body {
-    @include title-font;
+    @include bold-font;
 }
 
 h1 {
     @include copy-font;
+}
+
+p,
+span {
+    font-size: 1.4rem;
+}
+
+p {
+    margin: 0;
 }

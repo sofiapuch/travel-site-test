@@ -3,7 +3,7 @@
 - Why gulp instead of webpack
 - Nice to have Eslint and js lint
 - Why using prototype instead of classes
-- Underscore as templating engine
+- Underscore as templating engine ( https://underscorejs.org/ )
 
 ## Build notes
 - Run npm install

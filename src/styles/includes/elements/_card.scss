@@ -1,0 +1,76 @@
+.card {
+    position: relative;
+    padding: 4rem 0 12rem;
+    overflow: hidden;
+
+    &__bg-icon {
+        position: absolute;
+        bottom: -6rem;
+        left: -4rem;
+
+        .icon {
+            width: 20rem;
+            height: 20rem;
+            fill: rgba($white, .2);
+        }
+
+    }
+
+    &__date {
+        text-align: center;
+    }
+
+    &__info-wrapper {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-top: 4rem;
+    }
+
+    &__date,
+    &__info-wrapper {
+        color: $white;
+    }
+
+    &__icon {
+
+        .icon {
+            fill: $white;
+            width: 4rem;
+            height: 4rem;
+        }
+    }
+
+    &__text {
+        font-size: 1.4rem;
+        text-transform: uppercase;
+        letter-spacing: .15rem;
+        margin: 2rem 0 1.6rem;
+    }
+
+    &__temp {
+
+        &--celsius {
+            font-size: 5.6rem;
+            @include bold-font;
+
+            span {
+                font-size: 3rem;
+            }
+        }
+
+        &--farenheight {
+            font-size: 1.4rem;
+            text-decoration: uppercase;
+        }
+    }
+
+    //TODO: replace with themify ( https://www.npmjs.com/package/sass-themify )
+    &--clear-sky {
+
+        @include linear-gradient(to top, $clear-sky...);
+    }
+    &--broken-clouds {
+        @include linear-gradient(to top, $broken-clouds...);
+    }
+}

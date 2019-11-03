@@ -9,5 +9,8 @@
 @import 'includes/global/global';
 @import 'includes/global/grid';
 
+/* Elements */
+@import 'includes/elements/*.scss';
+
 /* Components */
-@import 'includes/components/*.scss';
+@import '../components/**/**/*.scss';

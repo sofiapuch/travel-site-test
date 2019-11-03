@@ -1,0 +1,24 @@
+<!-- Dummy forecast card template -->
+
+<% _.each( itemList, function( item ) { %>
+    <div class="col-3">
+        <div class="card card--clear-sky">
+            <div class="card__bg-icon">
+                <svg class="icon">
+                    <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/assets/svg-output/icons.svg#<%= item.weather[0].icon %>"></use>
+                </svg>
+            </div>
+            <p class="card__date">Today 15th</p>
+            <div class="card__info-wrapper">
+                <div class="card__icon">
+                    <svg class="icon">
+                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/assets/svg-output/icons.svg#<%= item.weather[0].icon %>"></use>
+                    </svg>
+                </div>
+                <p class="card__text"><%= item.weather[0].description %></p>
+                <p class="card__temp card__temp--celsius">22<span>*C</span></p>
+                <p class="card__temp card__temp--farenheight">72<span>*F</span></p>
+            </div>
+        </div>
+    </div>
+<% }); %>
