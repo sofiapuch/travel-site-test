@@ -26,3 +26,73 @@ $i: 1;
     }
     $i: $i + 1;
 }
+
+// Grid responsiveness for 1200px
+@include mq($until: wide) {
+
+    $i: 1;
+
+    @while $i < 13 {
+
+        .col-#{$i}-wide {
+            width: (100% / 12) * $i;
+        }
+        $i: $i + 1;
+    }
+}
+
+// Grid responsiveness for 1024px
+@include mq($until: desktop) {
+
+    $i: 1;
+
+    @while $i < 13 {
+
+        .col-#{$i}-desk {
+            width: (100% / 12) * $i;
+        }
+        $i: $i + 1;
+    }
+}
+
+// Grid responsiveness for 840px
+@include mq($until: tablet) {
+
+    $i: 1;
+
+    @while $i < 13 {
+
+        .col-#{$i}-tab {
+            width: (100% / 12) * $i;
+        }
+        $i: $i + 1;
+    }
+}
+
+// Grid responsiveness for 680px (mobile landscape)
+@include mq($until: phablet) {
+
+    $i: 1;
+
+    @while $i < 13 {
+
+        .col-#{$i}-phab {
+            width: (100% / 12) * $i;
+        }
+        $i: $i + 1;
+    }
+}
+
+// Grid responsiveness for 350px
+@include mq($until: mobile) {
+
+    $i: 1;
+
+    @while $i < 13 {
+
+        .col-#{$i}-mob {
+            width: (100% / 12) * $i;
+        }
+        $i: $i + 1;
+    }
+}

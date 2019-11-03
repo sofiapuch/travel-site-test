@@ -1,3 +1,5 @@
+/* Build Script */
+
 import gulp from 'gulp';
 import del from 'del';
 
@@ -18,17 +20,6 @@ import sourcemaps from 'gulp-sourcemaps';
 import svgSprite from 'gulp-svg-sprite';
 
 const paths = {
-    styles: {
-        src: {
-            global: 'src/styles/**/*.scss',
-            components: 'src/components/**/*.scss'
-        },
-        dist: 'dist/styles/'
-    },
-    js: {
-        src: 'src/components/**/*.js',
-        dist: 'dist/scripts/'
-    },
     vendors : {
         "development" : [
             "./node_modules/underscore/underscore.js",
@@ -40,78 +31,6 @@ const paths = {
         ]
     }
 };
-
-export function clean( cb ) {
-    return del( ['dist/*'], cb );
-}
-
-export function webserver() {
-    return connect.server( {
-        root: './dist',
-        host: 'localhost',
-        port: 8080,
-        livereload: true
-    } );
-}
-
-export function html() {
-    return gulp.src('./src/*.html')
-    .pipe(gulp.dest('./dist'))
-    .pipe(connect.reload());
-}
-
-export function mainScripts() {
-    return gulp.src('./src/app.js')
-        .pipe( sourcemaps.init())
-        .pipe( babel() )
-        .on('error', error => console.log( error))
-        .pipe(concat('main.js'))
-        .pipe(sourcemaps.write())
-        .pipe( gulp.dest( paths.js.dist))
-        .pipe( concat('main.min.js'))
-        .pipe(gulp.dest(paths.js.dist));
-}
-
-export function commonScripts() {
-    return gulp.src('src/common-scripts/**/*.js')
-        .pipe( sourcemaps.init())
-        .pipe( babel() )
-        .on('error', error => console.log( error))
-        .pipe(concat('common.js'))
-        .pipe(sourcemaps.write())
-        .pipe( gulp.dest( paths.js.dist))
-        .pipe( concat('common.min.js'))
-        .pipe(gulp.dest(paths.js.dist));
-}
-
-export function componentScripts() {
-    return gulp.src(paths.js.src)
-        .pipe( sourcemaps.init())
-        .pipe( babel() )
-        .on('error', error => console.log( error))
-        .pipe(concat('components.js'))
-        .pipe(sourcemaps.write())
-        .pipe( gulp.dest( paths.js.dist))
-        .pipe( concat('components.min.js'))
-        .pipe(gulp.dest(paths.js.dist));
-}
-
-export function vendors() {
-    return gulp.src(paths.vendors.development)
-        .pipe( concat('vendors.js'))
-        .pipe( gulp.dest('dist/scripts/'))
-}
-
-export function styles() {
-    return gulp.src(paths.styles.src.global)
-        .pipe(sourcemaps.init())
-        .pipe(sassGlob())
-        .pipe(sass.sync().on('error', sass.logError))
-        .pipe(autoprefixer())
-        .pipe(sourcemaps.write())
-        .pipe(gulp.dest(paths.styles.dist))
-        .pipe(connect.reload());
-}
 
 const iconConfig = {
     shape : {
@@ -132,6 +51,87 @@ const iconConfig = {
     }
 };
 
+// Clean dist folder
+export function clean( cb ) {
+    return del( ['dist/*'], cb );
+}
+
+// Runs local server
+export function webserver() {
+    return connect.server( {
+        root: './dist',
+        host: 'localhost',
+        port: 8080,
+        livereload: true
+    } );
+}
+
+// Copy index file into dist folder
+export function html() {
+    return gulp.src('./src/*.html')
+    .pipe(gulp.dest('./dist'))
+    .pipe(connect.reload());
+}
+
+// Builds main scripts
+export function mainScripts() {
+    return gulp.src('./src/app.js')
+        .pipe( sourcemaps.init())
+        .pipe( babel() )
+        .on('error', error => console.log( error))
+        .pipe(concat('main.js'))
+        .pipe(sourcemaps.write())
+        .pipe( gulp.dest('dist/scripts/'))
+        .pipe( concat('main.min.js'))
+        .pipe(gulp.dest('dist/scripts/'));
+}
+
+// Build common scripts
+export function commonScripts() {
+    return gulp.src('src/common-scripts/**/*.js')
+        .pipe( sourcemaps.init())
+        .pipe( babel() )
+        .on('error', error => console.log( error))
+        .pipe(concat('common.js'))
+        .pipe(sourcemaps.write())
+        .pipe( gulp.dest('dist/scripts/'))
+        .pipe( concat('common.min.js'))
+        .pipe(gulp.dest('dist/scripts/'));
+}
+
+// Build component scripts
+export function componentScripts() {
+    return gulp.src('src/components/**/*.js')
+        .pipe( sourcemaps.init())
+        .pipe( babel() )
+        .on('error', error => console.log( error))
+        .pipe(concat('components.js'))
+        .pipe(sourcemaps.write())
+        .pipe( gulp.dest('dist/scripts/'))
+        .pipe( concat('components.min.js'))
+        .pipe(gulp.dest('dist/scripts/'));
+}
+
+// Bundles vendors js
+export function vendors() {
+    return gulp.src(paths.vendors.development)
+        .pipe( concat('vendors.js'))
+        .pipe( gulp.dest('dist/scripts/'))
+}
+
+// Build styles
+export function styles() {
+    return gulp.src('src/styles/**/*.scss')
+        .pipe(sourcemaps.init())
+        .pipe(sassGlob())
+        .pipe(sass.sync().on('error', sass.logError))
+        .pipe(autoprefixer())
+        .pipe(sourcemaps.write())
+        .pipe(gulp.dest('dist/styles/'))
+        .pipe(connect.reload());
+}
+
+// Build svgs into the dist folder
 export function icons() {
     return gulp.src('src/assets/icons/*.svg')
     .pipe(svgSprite(iconConfig))
@@ -140,7 +140,6 @@ export function icons() {
 }
 
 const buildScripts = gulp.parallel( mainScripts, commonScripts, componentScripts );
-
 const buildDefault = gulp.series( clean, gulp.parallel( html, styles, icons, buildScripts ), vendors );
 
 // Default task

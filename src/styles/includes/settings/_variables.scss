@@ -21,8 +21,9 @@ $iron: #d6d8d9;
 
 $black: #000;
 $white: #fff;
-$athens-gray: #f2f1f3;
+$wild-sand: #f4f4f4;
 $gravel: #4c4851;
+$nevada: #67696a;
 
 /* Gradient groups */
 $clear-sky: $atomic-tangerine, $mustard;
@@ -35,3 +36,6 @@ $thunderstorm: $tarawera, $hippie-blue;
 $snow: $danube, $iceberg;
 $mist: $oslo-gray, $iron;
 $default: $gravel;
+
+$button: $oslo-gray, $nevada;
+$button-hover: $boston-blue, $bahama-blue;

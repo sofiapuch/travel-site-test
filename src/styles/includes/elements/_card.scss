@@ -1,18 +1,18 @@
 .card {
     $this: &;
     position: relative;
-    padding: 4rem 0 12rem;
+    padding: 4rem 0 8rem;
     overflow: hidden;
-    @include linear-gradient(to top, $default...); //default background colour
+    @include linear-gradient(to bottom, $default...); //default background colour
 
     &__bg-icon {
         position: absolute;
-        bottom: -6rem;
-        left: -4rem;
+        bottom: -5rem;
+        left: -3rem;
 
         .icon {
-            width: 20rem;
-            height: 20rem;
+            width: 15rem;
+            height: 15rem;
             fill: rgba($white, .2);
         }
     }
@@ -47,6 +47,7 @@
         text-transform: uppercase;
         letter-spacing: .15rem;
         margin: 2rem 0 1.6rem;
+        text-align: center;
     }
 
     &__temp {
@@ -69,25 +70,51 @@
     //TODO: replace with themify ( https://www.npmjs.com/package/sass-themify ) + map options
     &--clear-sky {
 
-        @include linear-gradient(to top, $clear-sky...);
+        @include linear-gradient(to bottom, $clear-sky...);
+    }
+
+    &--few-clouds,
+    &--overcast-clouds {
+        @include linear-gradient(to bottom, $few-clouds...);
+    }
+
+    &--scattered-clouds {
+        @include linear-gradient(to bottom, $scattered-clouds...);
     }
 
     &--broken-clouds {
-        @include linear-gradient(to top, $broken-clouds...);
+        @include linear-gradient(to bottom, $broken-clouds...);
     }
 
-    &--overcast-clouds {
-        @include linear-gradient(to top, $few-clouds...);
+    &--shower-rain {
+        @include linear-gradient(to bottom, $shower-rain...);
+    }
+
+    &--rain {
+        @include linear-gradient(to bottom, $rain...);
     }
 
     &--light-rain,
     &--moderate-rain {
-        @include linear-gradient(to top, $rain...);
+        @include linear-gradient(to bottom, $rain...);
+    }
+
+    &--thunderstorm {
+        @include linear-gradient(to bottom, $thunderstorm...);
     }
 
     &--snow,
     &--light-snow {
-        @include linear-gradient(to top, $snow...);
+        @include linear-gradient(to bottom, $snow...);    
+    }
+
+    &--mist {
+        @include linear-gradient(to bottom, $thunderstorm...);
+    }
+
+    &--snow,
+    &--light-snow,
+    &--mist {
 
         #{$this} {
 
@@ -102,7 +129,6 @@
                     fill: $gravel;
                 }
             }
-
         }
     }
 }

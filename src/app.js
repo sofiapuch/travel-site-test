@@ -1,6 +1,6 @@
 (function() {
 
-    // Init app
+    // Initialises the app
     if ( !window.app ) {
         window.app = {};
     }

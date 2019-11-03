@@ -5,9 +5,10 @@ $border-radius: 1rem;
 .forecast {
     display: flex;
     justify-content: center;
+    position: relative;
+    margin-bottom: 4rem;
 
     [class*='col-'] {
-        width: 18%; //override global column width
 
         &:first-child {
 
@@ -23,6 +24,23 @@ $border-radius: 1rem;
                 border-top-right-radius: $border-radius;
                 border-bottom-right-radius: $border-radius;
             }
+        }
+    }
+
+    @include mq($until: tablet) {
+        display: block;
+
+        .card {
+            border-radius: $border-radius;
+            margin-bottom: 2rem;
+        }
+    }
+
+    @include mq($until: 400px) {
+
+        [class*='col-'] {
+            width: 100%;
+            padding: 0;
         }
     }
 }

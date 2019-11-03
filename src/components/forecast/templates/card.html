@@ -1,7 +1,11 @@
-<!-- Dummy forecast card template -->
+<!--
+    Dummy forecast card template
+    Ideally you would either import this template into your js file or you would
+    stringify it and attach it to the top of your js file when building the scripts
+-->
 
 <% _.each( itemList, function( item ) { %>
-    <div class="col-3">
+    <div class="col-2 col-3-wide col-6-tab">
         <div class="card card--<%= common.Helpers.getCardModifier( item.weather[0].description ) %>">
             <div class="card__bg-icon">
                 <svg class="icon">
