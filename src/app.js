@@ -5,4 +5,8 @@
         window.app = {};
     }
 
+    if ( !window.common ) {
+        window.common = {};
+    }
+
 }());

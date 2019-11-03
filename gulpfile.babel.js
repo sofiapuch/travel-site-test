@@ -70,6 +70,18 @@ export function mainScripts() {
         .pipe(gulp.dest(paths.js.dist));
 }
 
+export function commonScripts() {
+    return gulp.src('src/common-scripts/**/*.js')
+        .pipe( sourcemaps.init())
+        .pipe( babel() )
+        .on('error', error => console.log( error))
+        .pipe(concat('common.js'))
+        .pipe(sourcemaps.write())
+        .pipe( gulp.dest( paths.js.dist))
+        .pipe( concat('common.min.js'))
+        .pipe(gulp.dest(paths.js.dist));
+}
+
 export function componentScripts() {
     return gulp.src(paths.js.src)
         .pipe( sourcemaps.init())
@@ -125,7 +137,9 @@ export function icons() {
     .pipe(connect.reload());
 }
 
-const buildDefault = gulp.series( clean, gulp.parallel( html, styles, icons, mainScripts, componentScripts ), vendors );
+const buildScripts = gulp.parallel( mainScripts, commonScripts, componentScripts );
+
+const buildDefault = gulp.series( clean, gulp.parallel( html, styles, icons, buildScripts ), vendors );
 
 // Default task
 export default buildDefault;
