@@ -38,6 +38,7 @@ would made an app more consistent
 
 ## Build notes
 - Run `npm install`
+- Run `gulp` to build files into the dist folder
 - Run `gulp webserver` and open http://localhost:8080/index.html
 
 ## Gulp tasks
