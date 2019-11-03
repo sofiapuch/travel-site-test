@@ -34,10 +34,11 @@ would made an app more consistent
 - Underscore template would work better built on top of the js file by a gulp task
 - Watch tasks
 - Split gulp tasks into multiple files
+- Fix momentjs warning
 
 ## Build notes
-- Run npm install
-- Run webserver and open http://localhost:8080/index.html
+- Run `npm install`
+- Run `gulp webserver` and open http://localhost:8080/index.html
 
 ## Gulp tasks
 `gulp`
