@@ -3,6 +3,8 @@
 $border-radius: 1rem;
 
 .forecast {
+    display: flex;
+    justify-content: center;
 
     [class*='col-'] {
         width: 18%; //override global column width

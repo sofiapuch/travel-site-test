@@ -16,8 +16,8 @@
                     </svg>
                 </div>
                 <p class="card__text"><%= item.weather[0].description %></p>
-                <p class="card__temp card__temp--celsius">22<span>*C</span></p>
-                <p class="card__temp card__temp--farenheight">72<span>*F</span></p>
+                <p class="card__temp card__temp--celsius"><%= Math.round(item.main.temp) %><span>&#176;C</span></p>
+                <p class="card__temp card__temp--fahrenheit"><%= common.Helpers.celsiusToFahrenheit(item.main.temp) %><span>&#176;F</span></p>
             </div>
         </div>
     </div>

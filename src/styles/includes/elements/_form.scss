@@ -1,0 +1,26 @@
+$border-radius: .2rem;
+
+.form {
+    margin-bottom: 1rem;
+
+    &__input {
+        width: 20rem;
+        height: 3.6rem;
+        background-color: $athens-gray;
+        border: none;
+        padding: .6rem;
+        font-size: 1.2rem;
+        border-top-left-radius: $border-radius;
+        border-bottom-left-radius: $border-radius;
+    }
+
+    &__button {
+        border-top-right-radius: $border-radius;
+        border-bottom-right-radius: $border-radius;
+    }
+
+    &--center {
+        display: flex;
+        justify-content: center;
+    }
+}

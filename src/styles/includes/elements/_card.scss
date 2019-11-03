@@ -1,7 +1,9 @@
 .card {
+    $this: &;
     position: relative;
     padding: 4rem 0 12rem;
     overflow: hidden;
+    @include linear-gradient(to top, $default...); //default background colour
 
     &__bg-icon {
         position: absolute;
@@ -58,7 +60,7 @@
             }
         }
 
-        &--farenheight {
+        &--fahrenheit {
             font-size: 1.4rem;
             text-decoration: uppercase;
         }
@@ -81,5 +83,26 @@
     &--light-rain,
     &--moderate-rain {
         @include linear-gradient(to top, $rain...);
+    }
+
+    &--snow,
+    &--light-snow {
+        @include linear-gradient(to top, $snow...);
+
+        #{$this} {
+
+            &__date,
+            &__info-wrapper {
+                color: $gravel;
+            }
+
+            &__icon {
+
+                .icon {
+                    fill: $gravel;
+                }
+            }
+
+        }
     }
 }

@@ -9,11 +9,14 @@ html {
 }
 
 body {
-    @include bold-font;
+    @include copy-font;
 }
 
-h1 {
-    @include copy-font;
+h1,
+h2 {
+    @include bold-font;
+    text-align: center;
+    margin: 2rem 0;
 }
 
 p,

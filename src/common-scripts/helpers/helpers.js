@@ -16,7 +16,7 @@
         if ( !location || !appID ) {
             return null;
         }
-        return `https://api.openweathermap.org/data/2.5/forecast?q=${location}&appid=${appID}`;
+        return `https://api.openweathermap.org/data/2.5/forecast?q=${location}&appid=${appID}&units=metric`;
     };
 
     /**
@@ -56,7 +56,6 @@
      * param {String} format how do we want to get the date
      * @return {String} formatted date
      */
-
     common.Helpers.getFormattedDate = function( dateString, format ) {
 
         if ( !dateString ) {
@@ -66,5 +65,36 @@
         const momentObject = moment( dateString, "YYYY-MM-DD HH:mm:ss" );
         return momentObject.format( format );
     };
+
+    /**
+     * Transform celsius to fahrenheit
+     * @param {String} celsius degrees in celsius
+     */
+     common.Helpers.celsiusToFahrenheit = function( celsius ) {
+
+         if ( !celsius ) {
+             return '';
+         }
+
+         return Math.round( ( celsius * 9/5 ) + 32 );
+     };
+
+     /**
+      * Dispatch custom event
+      * @param {String} type The type of the event
+      * @param {String} detail event detail
+      * @param {DOMElement} target The target or document if not specified
+      */
+     common.Helpers.dispatchCustomEvent = function( type, detail, target ) {
+
+         const event = new CustomEvent( type, {
+             bubbles: true,
+             cancelable: false,
+             detail: detail || null
+         } );
+
+         const eventTarget = target || document;
+         eventTarget.dispatchEvent( event );
+     }
 
 }( common ));

@@ -1,7 +1,7 @@
 (function( common ) {
 
     /**
-     * Handles http requests
+     * Handles http requests - would be good to get errorCallback too
      * @param {String} method defaults to 'GET'
      * @param {String} URL endpoint
      * @param {}
@@ -17,7 +17,7 @@
         const httpRequest = new XMLHttpRequest();
 
         if ( !httpRequest ) {
-            return callback( 'common.Request: httpRequest unavailable' );
+            console.warn( 'common.Request: httpRequest unavailable' );
         }
 
         makeRequest();
@@ -32,10 +32,10 @@
 
             if ( httpRequest.readyState === XMLHttpRequest.DONE ) {
 
-                if ( httpRequest.status === 200 ) {
-                    return callback( JSON.parse( httpRequest.responseText ) ); 
+                if ( httpRequest.status === 200 || httpRequest.status === 404 ) {
+                    return callback( JSON.parse( httpRequest.responseText ) );
                 } else {
-                    return callback( 'common.Request: There was a problem with the request.' );
+                    console.warn( 'common.Request: There was a problem with the request.' );
                 }
             }
         }

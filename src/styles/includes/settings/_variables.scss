@@ -21,10 +21,11 @@ $iron: #d6d8d9;
 
 $black: #000;
 $white: #fff;
-
+$athens-gray: #f2f1f3;
+$gravel: #4c4851;
 
 /* Gradient groups */
-$clear-sky: $mustard, $atomic-tangerine;
+$clear-sky: $atomic-tangerine, $mustard;
 $few-clouds: $caribbean-green, $bright-turquoise;
 $scattered-clouds: $boston-blue, $turquoise-blue;
 $broken-clouds: $scattered-clouds;
@@ -33,3 +34,4 @@ $rain: $curious-blue, $malibu;
 $thunderstorm: $tarawera, $hippie-blue;
 $snow: $danube, $iceberg;
 $mist: $oslo-gray, $iron;
+$default: $gravel;

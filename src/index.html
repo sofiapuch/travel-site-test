@@ -12,8 +12,18 @@
     <body>
 
         <h1>Weather Forecast</h1>
+
         <div id="root">
-            <div class="wrapper forecast" data-component="forecast"></div>
+            <section class="wrapper form form--center" data-component="search-bar">
+                <input class="form__input js-location-input" type="text" placeholder="London"/>
+                <button class="form__button js-location-button">Find</button>
+            </section>
+            <section class="wrapper forecast" data-component="forecast" data-location="London" data-updates="true"></section>
+
+            <h2>Berlin Weather</h2>
+            <section class="wrapper forecast" data-component="forecast" data-location="Berlin"></section>
+            <h2>Reykjavik Weather</h2>
+            <section class="wrapper forecast" data-component="forecast" data-location="Reykjavik"></section>
         </div>
 
         <script src="/scripts/main.js" defer></script>
